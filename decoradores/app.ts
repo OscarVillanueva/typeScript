@@ -53,15 +53,51 @@ function editable( isEditable : boolean): Function {
 
 }
 
+// Decorador de propiedades
+const editableProperty = ( isEditable : boolean) : Function => {
+    
+    return ( target: any, nameProperty : string ): PropertyDescriptor => {
+
+        const descriptor : PropertyDescriptor = {
+            writable: isEditable
+        }
+
+        return descriptor
+
+    }
+
+}
+
+const param = ( target: any, nameMethod : string, index : number ) : void=> {
+    
+    console.log(`target`, target)
+    console.log(`nameMethod`, nameMethod)
+    console.log(`index`, index)
+
+}
+
 class VilliansM {
     
-    constructor( public name:string) {}
+    @editableProperty( false )
+    public name:string
+
+    constructor( name:string) {
+        this.name = name
+    }
 
     // Para evitar sobre carga de los metodos
     @editable( false )
     plan = () => {
         console.log("Dominar el mundo")
     }
+
+    print = ( plan: string, @param message: string ) => {
+        
+        if ( plan ) console.log(`El plan es: ${message}`)
+        else console.log(message)
+
+    }
+    
     
 }
 
