@@ -1,0 +1,21 @@
+{
+  "name": "librerias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "author": "Fernando Herrera",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.5.6",
+    "lite-server": "^2.2.2"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "sweetalert2": "^11.0.18",
+    "systemjs": "^0.19.41"
+  }
+}
